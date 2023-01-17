@@ -1,0 +1,4 @@
+1) Where is BigBen?,A) London,B) France,C) Germany,a
+2) Where is Endinburgh?,A) Lodon,B) France,C) Scotland,c
+3) Where is Buckingham Palace?,A) London,B) France,C) Germany,a
+4) Where is The Eiffel Tower?,A) London,B) France,C) Germany,b

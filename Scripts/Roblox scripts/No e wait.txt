@@ -1,0 +1,22 @@
+
+--no e wait
+local repl = game:GetService("ReplicatedStorage")
+local ui = require(repl.Module:WaitForChild("UI"))	
+	for i,v in next, ui.CircleAction.Specs do
+   		if v.Timed == true then	
+    		v.Timed = false
+    		end
+	end
+
+
+--no cell cooldown
+
+local callback)
+        toggl.celltimes = callback
+        require(repl.Resource.Settings).Time.Cell = callback and 0 or 20
+    end):Set(toggl.celltimes)
+
+local teamcooldown = playerwindow:Toggle("Remove Cell Time", function(callback)
+        toggl.celltimes = callback
+        require(repl.Resource.Settings).Time.Cell = callback and 0 or 20
+    end):Set(toggl.celltimes)

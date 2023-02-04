@@ -1,0 +1,140 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/wawsdasdacx/ohascriptnrrewading/main/jbsaxcriptidk1"))()
+
+CHATSPAM SCRIPT BY: DILLY
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Vynixius/main/Jailbreak/Script.lua"))()
+
+
+local ChatSpamGUI = Instance.new("ScreenGui")
+local ChatSpamFrame = Instance.new("Frame")
+local Add = Instance.new("TextButton")
+local Reset = Instance.new("TextButton")
+local Toggle = Instance.new("TextButton")
+local TextBox = Instance.new("TextBox")
+local Label = Instance.new("TextLabel")
+local ToggleGUI = Instance.new("TextButton")
+local ButtonPressed = false
+local Text = {"Ive got hacks, your mums got backs, your dad got put in a pack."}
+
+--Properties:
+
+ChatSpamGUI.Name = "ChatSpamGUI"
+ChatSpamGUI.Parent = game.CoreGui
+
+ChatSpamFrame.Name = "ChatSpamFrame"
+ChatSpamFrame.Parent = ChatSpamGUI
+ChatSpamFrame.BackgroundColor3 = Color3.fromRGB(67, 64, 63)
+ChatSpamFrame.Position = UDim2.new(0.797563314, 0, 0.259962082, 0)
+ChatSpamFrame.Size = UDim2.new(0, 159, 0, 180)
+ChatSpamFrame.Draggable = true
+
+Add.Name = "Add"
+Add.Parent = ChatSpamFrame
+Add.BackgroundColor3 = Color3.fromRGB(0, 255, 38)
+Add.Position = UDim2.new(0.0483081937, 0, 0.472601712, 0)
+Add.Size = UDim2.new(0, 67, 0, 23)
+Add.Font = Enum.Font.SourceSans
+Add.Text = "ADD"
+Add.TextColor3 = Color3.fromRGB(0, 0, 0)
+Add.TextSize = 22.000
+Add.MouseButton1Down:connect(function()
+	table.insert(Text,TextBox.Text) --add text to text table
+	print("\n\n-----Added " ..TextBox.Text .."-----\n\n")
+	print("\n\nHere are the table contents: ")
+	for i, v in pairs(Text) do
+		print(Text[i])
+	end
+end)
+
+Reset.Name = "Reset"
+Reset.Parent = ChatSpamFrame
+Reset.BackgroundColor3 = Color3.fromRGB(255, 38, 41)
+Reset.Position = UDim2.new(0.536642432, 0, 0.472601712, 0)
+Reset.Size = UDim2.new(0, 66, 0, 23)
+Reset.Font = Enum.Font.SourceSans
+Reset.Text = "RESET"
+Reset.TextColor3 = Color3.fromRGB(0, 0, 0)
+Reset.TextSize = 22.000
+Reset.TextWrapped = true
+Reset.MouseButton1Down:connect(function()
+	table.clear(Text)
+	table.insert(Text,"CHATSPAM SCRIPT BY: DILLY")
+	print("\n\n-----Cleared the table-----\n\n")
+end)
+
+Toggle.Name = "Toggle"
+Toggle.Parent = ChatSpamFrame
+Toggle.BackgroundColor3 = Color3.fromRGB(147, 255, 101)
+Toggle.Position = UDim2.new(0.0421566367, 0, 0.639015377, 0)
+Toggle.Size = UDim2.new(0, 144, 0, 33)
+Toggle.Font = Enum.Font.SourceSans
+Toggle.Text = "Toggle On/Off"
+Toggle.TextColor3 = Color3.fromRGB(0, 0, 0)
+Toggle.TextSize = 22.000
+Toggle.TextWrapped = true
+Toggle.MouseButton1Down:connect(function()
+	print("\n\n-----Checking if ChatSpam ON-----\n\n")
+	if ButtonPressed == false then
+		wait(0.5)
+		ButtonPressed = true
+		print("\n\n-----Turning ChatSpam ON-----\n\n")
+		spawn(function()
+			while ButtonPressed == true do
+				pcall(function()
+				game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(Text[math.random(1,#Text)], "All")
+
+				end)
+				wait(1)
+			end
+		end)
+	else
+		wait(0.5)
+		ButtonPressed = false
+		print("\n\n-----Turning ChatSpam OFF-----\n\n")
+	end
+end)
+
+TextBox.Parent = ChatSpamFrame
+TextBox.BackgroundColor3 = Color3.fromRGB(150, 150, 150)
+TextBox.Position = UDim2.new(0.0421566367, 0, 0.0376027822, 0)
+TextBox.Size = UDim2.new(0, 144, 0, 65)
+TextBox.Font = Enum.Font.SourceSans
+TextBox.MultiLine = true
+TextBox.PlaceholderColor3 = Color3.fromRGB(0, 0, 0)
+TextBox.PlaceholderText = "Type message..."
+TextBox.Text = ""
+TextBox.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextBox.TextScaled = true
+TextBox.TextSize = 14.000
+TextBox.TextWrapped = true
+
+Label.Name = "Label"
+Label.Parent = ChatSpamFrame
+Label.BackgroundColor3 = Color3.fromRGB(159, 159, 159)
+Label.Position = UDim2.new(-0.00307670934, 0, 0.88524127, 0)
+Label.Size = UDim2.new(0, 159, 0, 20)
+Label.Font = Enum.Font.SourceSans
+Label.Text = "CHAT SPAM | By DILLY"
+Label.TextColor3 = Color3.fromRGB(0, 0, 0)
+Label.TextScaled = true
+Label.TextSize = 14.000
+Label.TextWrapped = true
+
+ToggleGUI.Name = "ToggleGUI"
+ToggleGUI.Parent = ChatSpamGUI
+ToggleGUI.BackgroundColor3 = Color3.fromRGB(150, 150, 150)
+ToggleGUI.Position = UDim2.new(0.899718821, 0, 0.893738151, 0)
+ToggleGUI.Size = UDim2.new(0, 83, 0, 24)
+ToggleGUI.Font = Enum.Font.SourceSans
+ToggleGUI.Text = "Toggle GUI"
+ToggleGUI.TextColor3 = Color3.fromRGB(0, 0, 0)
+ToggleGUI.TextSize = 18.000
+ToggleGUI.Draggable = true
+ToggleGUI.TextWrapped = true
+ToggleGUI.MouseButton1Down:connect(function()
+	if ChatSpamFrame.Visible == true then
+		ChatSpamFrame.Visible = false
+	else
+		ChatSpamFrame.Visible = true
+	end
+end)

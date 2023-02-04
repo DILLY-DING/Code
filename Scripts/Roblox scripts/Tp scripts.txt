@@ -1,0 +1,128 @@
+getgenv().usetpmethod2 = false
+
+local function teleport(pos)
+    if client.gv() and getgenv().usetpmethod2 == false then
+        client.gv().Model:SetPrimaryPartCFrame(pos)
+    elseif not client.gv() and getgenv().usetpmethod2 == false then
+        isTeleporting = true
+        require(repl.Game.ItemSystem.ItemSystem).Unequip()
+        repeat wait()
+            cars = {}
+            getgenv().carlock = false
+            getgenv().lookforcar = false
+            for i,v in next, vehicles:GetChildren() do
+                if v.Name == "Camaro" and v.Seat.Player.Value == false and v:FindFirstChild("Camera") then
+                    if v:FindFirstChild("Passenger") then
+                        v.Passenger:Destroy()
+                    end
+                    if checkbank(v.Seat) or checkjew(v.Seat) or checkmus(v.Seat) then
+                        wait()
+                    else
+                        table.insert(cars,v)
+                    end
+                end
+            end
+            camaro = cars[math.random(1,#cars)]
+            repeat wait()
+                player.Character.HumanoidRootPart.CFrame = camaro.Camera.CFrame
+                require(repl.Game.Item.Gun).SetLeaning({Config = { Motion = { Hip = { Springs = { ItemOffset = nil, ItemRotation = nil, NeckRotation = nil } } } },SpringItemOffset = {SetTarget = function() end},SpringItemRotation = {SetTarget = function() end},SpringNeckRotation = {SetTarget = function() end},Local = true}, false, false)
+                for i,v in next, require(repl.Module.UI).CircleAction.Specs do
+                    if v.ValidRoot == camaro and v.IsVehicle == true then
+                        v:Callback(true)
+                    end
+                end
+            until client.gv() or getgenv().carlock or getgenv().lookforcar or camaro.Seat.Player.Value == true and camaro.Seat.PlayerName.Value ~= player.Name
+        until client.gv()
+        client.gv().Model:SetPrimaryPartCFrame(pos + Vector3.new(0,-100,0))
+        wait(0.1)
+        repeat wait()
+            client.LeaveVehicle(client.gv())
+        until client.gv() == nil
+        wait(0.5)
+        for i=1, 3 do
+            wait()
+            player.Character:SetPrimaryPartCFrame(pos)
+        end
+        isTeleporting = false
+    end
+end
+
+local function teleport2(pos)
+    if client.gv() and getgenv().usetpmethod2 == true then
+        client.gv().Model:SetPrimaryPartCFrame(pos)
+    elseif not client.gv() and getgenv().usetpmethod2 == true then
+        isTeleporting = true
+        require(repl.Game.ItemSystem.ItemSystem).Unequip()
+        repeat wait()
+            cars = {}
+            getgenv().carlock = false
+            getgenv().lookforcar = false
+            for i,v in next, vehicles:GetChildren() do
+                if v.Name == "Camaro" and v.Seat.Player.Value == false and v:FindFirstChild("Camera") then
+                    if v:FindFirstChild("Passenger") then
+                        v.Passenger:Destroy()
+                    end
+                    if checkbank(v.Seat) or checkjew(v.Seat) or checkmus(v.Seat) then
+                        wait()
+                    else
+                        table.insert(cars,v)
+                    end
+                end
+            end
+            camaro = cars[math.random(1,#cars)]
+            repeat wait()
+                wait()
+                player.Character.HumanoidRootPart.CFrame = camaro.Camera.CFrame
+                require(repl.Game.Item.Gun).SetLeaning({Config = { Motion = { Hip = { Springs = { ItemOffset = nil, ItemRotation = nil, NeckRotation = nil } } } },SpringItemOffset = {SetTarget = function() end},SpringItemRotation = {SetTarget = function() end},SpringNeckRotation = {SetTarget = function() end},Local = true}, false, false)
+                for i,v in next, require(repl.Module.UI).CircleAction.Specs do
+                    if v.ValidRoot == camaro and v.IsVehicle == true then
+                        v:Callback(true)
+                    end
+                end
+            until client.gv() or getgenv().carlock or getgenv().lookforcar or camaro.Seat.Player.Value == true and camaro.Seat.PlayerName.Value ~= player.Name
+        until client.gv()
+        client.gv().Model:SetPrimaryPartCFrame(pos)
+        isTeleporting = false
+    end
+end
+
+local function teleportarrest(pos)
+    if client.gv() then
+        require(repl.Game.ItemSystem.ItemSystem).Unequip()
+        client.gv().Model:SetPrimaryPartCFrame(pos)
+        equip("Handcuffs")
+    else
+        isTeleporting = true
+        require(repl.Game.ItemSystem.ItemSystem).Unequip()
+        repeat wait()
+            cars = {}
+            getgenv().carlock = false
+            getgenv().lookforcar = false
+            for i,v in next, vehicles:GetChildren() do
+                if v.Name == "Camaro" and v.Seat.Player.Value == false and v:FindFirstChild("Camera") then
+                    if v:FindFirstChild("Passenger") then
+                        v.Passenger:Destroy()
+                    end
+                    if checkbank(v.Seat) or checkjew(v.Seat) or checkmus(v.Seat) then
+                        wait()
+                    else
+                        table.insert(cars,v)
+                    end
+                end
+            end
+            camaro = cars[math.random(1,#cars)]
+            repeat wait()
+                player.Character.HumanoidRootPart.CFrame = camaro.Camera.CFrame
+                for i,v in next, require(repl.Module.UI).CircleAction.Specs do
+                    if v.ValidRoot == camaro and v.IsVehicle == true then
+                        v:Callback(true) 
+                    end
+                end
+                wait()
+            until client.gv() or getgenv().carlock or getgenv().lookforcar or camaro.Seat.Player.Value == true and camaro.Seat.PlayerName.Value ~= player.Name
+        until client.gv()
+        equip("Handcuffs")
+        client.gv().Model:SetPrimaryPartCFrame(pos)
+        isTeleporting = false
+    end
+end

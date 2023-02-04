@@ -1,0 +1,20 @@
+--no wait script
+
+for i,v in next, ui.CircleAction.Specs do
+                    if v.Timed == true then	
+                        v.Timed = false
+                    end
+                end
+
+local nowait = playerwindow:Toggle("No Wait", function(callback)
+        toggl.nowait = callback
+    end):Set(toggl.nowait)
+
+local ui = require(repl.Module:WaitForChild("UI"))
+            if toggl.nowait == true then
+                for i,v in next, ui.CircleAction.Specs do
+                    if v.Timed == true then	
+                        v.Timed = false
+                    end
+                end
+            end
